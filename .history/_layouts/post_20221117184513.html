@@ -1,0 +1,37 @@
+{% include head.html %}
+
+{% include sidebar.html %}
+
+<article class="post">
+    <h2>
+        <a href="{{ post.url }}">
+            {{ page.title }}
+        </a>
+    </h2>
+    <p class="p">
+    {% for cat in page.categories %}
+        {{ cat }}
+    {% endfor %}
+    </p>
+
+    <div class="post__content wysiwyg">
+        {{ content }}
+    </div>
+
+    <div class="tag-list">
+        <h3>
+            Tags:
+        </h3>
+        <ul>
+            {% for tag in page.tags %}
+            <li>
+                <a href="/tags/{{ tag | slugify }}">
+                    {{ tag }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</article>
+
+{% include footer.html %}

@@ -1,0 +1,27 @@
+- title: About
+  url: /about/
+  submenu:
+    - title: Who we are
+      url: /about/who-we-are/
+    - title: Careers
+      url: /careers/
+- title: Solutions
+  url: /solutions/
+  submenu:
+    - title: Fleets
+      url: /solutions/fleets/
+    - title: Charging & Energy
+      url: /solutions/charging-and-energy/
+- title: Resources
+  url: /resources/
+  submenu:
+    - title: Whitepapers
+      url: /resources/whitepapers/
+    - title: Reports
+      url: /resources/reports/
+    - title: Tools
+      url: /resources/tools/
+- title: News
+  url: /news/
+- title: Contact
+  url: /contact/

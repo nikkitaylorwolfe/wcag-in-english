@@ -1,0 +1,26 @@
+{% include head.html %}
+
+<main data-barba="container" data-barba-namespace="page">
+
+	{% for block in page.page_blocks %}
+    {% case block._id %}
+        {% when 'general_content' %}
+            {% include /blocks/general-content.html block=block %}
+
+        {% when 'full_w_image' %}
+            {% include /blocks/full-w-image.html block=block %}
+
+        {% when 'youtube_embed' %}
+            {% include /blocks/youtube-embed.html block=block %}
+
+        {% when 'team' %}
+            {% include /blocks/team.html block=block %}
+
+        {% else %}
+        <!-- else -->
+    {% endcase %}
+    {% endfor %}
+
+</main>
+
+{% include footer.html %}

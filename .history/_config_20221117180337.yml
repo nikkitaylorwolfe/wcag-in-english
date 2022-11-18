@@ -25,6 +25,8 @@ _options:
 #cloudcannon:
   data: true
 
+
+
 collections_config:
   posts:
     schemas:
@@ -52,35 +54,20 @@ _editables:
     undo: true
     redo: true
 
+# Collections (Custom Post Types)
+collections:
+  # general_pages:
+  #   output: true
+  #   _hide_content: true
+  #   permalink: /:name
+  #   sort_by:   
+
 defaults:
   - scope:
       path: ""
       type: "posts"
     values:
       layout: "post"
-
-
-jekyll-archives:
-  enabled: 
-    - tag
-    - category
-  layout: archive
-  permalinks:
-    year: '/:year/'
-    month: '/:year/:month/'
-    day: '/:year/:month/:day/'
-    tag: '/tag/:name/'
-    category: '/category/:name/'
-
-_select_data:
-  level:
-    - A
-    - AA
-    - AAA
-    - None
-  version:
-    - "2.1"
-    - "2.2"
 
 # Exclude from processing.
 # The following items will not be processed, by default.

@@ -1,0 +1,50 @@
+---
+layout: page-with-blocks
+title:
+permalink:
+page_title:
+page_blocks: []
+_array_structures:
+# —————————————————————————————————————
+  # Page Blocks (Layers)
+  # —————————————————————————————————————
+  page_blocks:
+    # ———
+    # General Content
+    # ———
+    - label: General Content
+      icon: wysiwyg # fonts.google.com/icons
+      value:
+        _id: general_content # use file name w/ underscores
+        general_content_html:
+    # ———
+    # Full Width Image
+    # ———
+    - label: Full Width Image
+      icon: insert_photo # fonts.google.com/icons
+      value:
+        _id: full_w_image # use file name w/ underscores
+        image:
+        image_alt_text:
+    # ———
+    # Video Embed
+    # ———
+    - label: Youtube Embed Code
+      icon: movie # fonts.google.com/icons
+      value:
+        _id: youtube_embed # use file name w/ underscores
+        youtube_embed_code_block:
+    # ———
+    # Team Section
+    # ———
+    - label: Team Section
+      icon: groups # fonts.google.com/icons
+      value:
+        _id: team # use file name w/ underscores
+        heading:
+        team_member:
+          - name:
+            job_title:
+            bio_html:
+            image:
+---

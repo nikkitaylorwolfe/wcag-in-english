@@ -1,0 +1,16 @@
+<section class="team-section wo">
+    <h2 class="team-section__header col-1-12 m-col-1-9 s-col-1-5 pv-small">
+        {{ include.block.heading }}
+    </h2>
+    <div class="team-section__container col-1-12 m-col-1-9 s-col-1-5 flex-wo">
+    {% for teamMember in include.block.team_member %}
+        <div class="team-section__container__team__member">
+            {% teamMember.image %}
+            <img aria-hidden="true" src="{{ teamMember.image }}" alt="">
+            {% endif %}
+            <h3>{{ teamMember.name }}</h3>
+            <h4>{{ teamMember.job_title }}</h4>
+        </div>
+    {% endfor %}
+    </div>
+</section>

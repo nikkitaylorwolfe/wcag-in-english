@@ -1,4 +1,4 @@
-title: WCAG In English - Nicky's Opinions
+title: Manoverboard Boilerplate
 description:
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
@@ -22,14 +22,9 @@ _options:
     uploads_dir: "uploads"
   content: # Content Editor and block Editable Regions
     uploads_dir: "uploads"
+
 #cloudcannon:
   data: true
-
-collections_config:
-  posts:
-    schemas:
-      default:
-        path: schemas/post.md
 
 # CloudCannon Field Descriptions
 _comments:
@@ -52,35 +47,20 @@ _editables:
     undo: true
     redo: true
 
+# Collections (Custom Post Types)
+collections:
+  # general_pages:
+  #   output: true
+  #   _hide_content: true
+  #   permalink: /:name
+  #   sort_by:   
+
 defaults:
   - scope:
       path: ""
       type: "posts"
     values:
       layout: "post"
-
-
-jekyll-archives:
-  enabled: 
-    - tag
-    - category
-  layout: archive
-  permalinks:
-    year: '/:year/'
-    month: '/:year/:month/'
-    day: '/:year/:month/:day/'
-    tag: '/tag/:name/'
-    category: '/category/:name/'
-
-_select_data:
-  level:
-    - A
-    - AA
-    - AAA
-    - None
-  version:
-    - "2.1"
-    - "2.2"
 
 # Exclude from processing.
 # The following items will not be processed, by default.

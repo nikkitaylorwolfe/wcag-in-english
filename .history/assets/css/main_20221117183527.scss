@@ -1,0 +1,453 @@
+--- 
+--- 
+// this file must start with front matter, 
+// like above, so jekyll knows to parse and do shit with it! :D
+
+// ————————————————————————————————————————— 
+// VARIABLES: for partials
+// ————————————————————————————————————————— 
+// for layout
+$column-count: 12;
+$column-count-m: 9;
+$column-count-s: 4;
+$margin: 60;
+$margin-m: 40;
+$margin-s: 20;
+$column-gap: 20;
+
+// ————————————————————————————————————————— 
+// IMPORTS 
+// ————————————————————————————————————————— 
+// these are partials
+// init for mob theme
+@import "init";
+// grid and base layout classes
+@import "layout";
+
+
+// ————————————————————————————————————————— 
+// VARIABLES: for base
+// ————————————————————————————————————————— 
+$headerheight: 80px;
+$fullbrowserheight: calc(100vh - 80px);
+
+// color
+$dark: #25262D;
+$light: #D8D8DF;
+$medium: #373843;
+
+// easings
+$easing: cubic-bezier(0.83, 0, 0.17, 1);
+
+
+// ————————————————————————————————————————— 
+// M I X I N S
+// ————————————————————————————————————————— 
+// @include background-image("image.jpg");
+@mixin background-image($url) {
+    background: $grey url($url) no-repeat center;
+    background-size: cover;
+}
+
+// @include background-fill();
+@mixin background-fill() {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+
+// ————————————————————————————————————————— 
+// S T A T E S
+// ————————————————————————————————————————— 
+::selection {
+    background: rgba(252, 67, 54, 0.5);
+}
+
+::-moz-selection {
+    background: rgba(252, 67, 54, 0.5);
+}
+
+:focus {
+    outline: none;
+}
+
+.keyboard-focus {
+    *:focus {
+        outline: 2px solid red;
+    }
+}
+
+// skip link defaults
+// skip link defaults
+#skipLink {
+    padding: 20px 10px 11px 10px;
+    display: inline-block;
+    position: absolute;
+    z-index: 123456789;
+    background-color: white;
+    top: -200px;
+    left: 20px;
+    border-radius: 0px 0px 5px 5px;
+    box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.5);
+    transition: .4s all $easing;
+
+    &:focus {
+        top: 0;
+    }
+}
+
+
+
+// ————————————————————————————————————————— 
+// core styles & classes
+// ————————————————————————————————————————— 
+body {
+    background-color: $dark;
+    accent-color: $light;
+    font-family: 'Atkinson Hyperlegible', sans-serif !important;
+    color: $light !important;
+}
+
+body,
+input,
+textarea,
+radio,
+checkbox,
+.strip {
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    text-align: left;
+}
+
+.pv {
+    padding-top: 65px;
+    padding-bottom: 65px;
+}
+
+// If you must, you can uncomment. Otherwise, use aspect-ratio property below
+// .video-wrapper {
+//     position: relative;
+//     padding-bottom: 56.25%;
+//     /* 16:9 */
+//     padding-top: 25px;
+//     height: 0;
+//     embed,
+//     video,
+//     object {
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         width: 100%;
+//         height: 100%;
+//     }
+// }
+
+video,
+embed,
+iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+}
+
+/* Fixes potential theme css conflict. */
+.acf-map {
+    width: 100%;
+    height: 100vh;
+
+    img {
+        max-width: inherit !important;
+    }
+}
+
+li p,
+p .button {
+    font-size: 100%;
+}
+
+
+
+// —————————————————————————————————————————
+// A11Y links in new window styling
+// https://www.w3.org/WAI/WCAG21/Techniques/general/G201.html
+// —————————————————————————————————————————
+a[target="_blank"] {
+    position: relative;
+
+    span {
+        position: absolute;
+        left: -9000px;
+        width: 0;
+        overflow: hidden;
+    }
+
+    &:hover span,
+    &:focus span,
+    &:active span {
+        display: block;
+        position: absolute;
+        top: 1em;
+        left: 1em;
+        width: 12em;
+        border: 1px solid black;
+        background-color: white;
+        color: black;
+        text-align: center;
+    }
+}
+
+
+// ————————————————————————————————————————— 
+// Navigation
+// —————————————————————————————————————————
+#navToggle {
+    padding: 0;
+    margin: 0;
+    /*  safari and firefox */
+    border: 1px solid transparent;
+
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
+.your-menu-selector {
+    display: none;
+    list-style: none;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &.is-active {
+        display: flex;
+    }
+
+    li {
+        display: inline-block;
+    }
+
+    li.menu-item-has-children {
+        position: relative;
+
+        &:after {
+            /* your icon here */
+            content: "+";
+            position: absolute;
+            top: 2px;
+            right: -15px;
+            width: 10px;
+            height: 10px;
+        }
+
+        &:focus-within .sub-menu {
+            display: block;
+        }
+
+        .sub-menu {
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        &.is-open .sub-menu {
+            display: flex;
+        }
+    }
+}
+
+
+
+// ————————————————————————————————————————— 
+// ST Typography
+// —————————————————————————————————————————
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+}
+
+p,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+b,
+strong {
+    font-weight: 600;
+}
+
+a {
+    text-decoration: underline;
+    color: inherit;
+}
+// ————————————————————————————— headings
+
+h1,
+h2 {
+    font-size: 360%;
+    font-weight: 400;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 270%;
+    margin-bottom: 10px;
+    margin-top: 40px;
+}
+
+h4 {
+    font-size: 200%;
+    margin-top: 20px;
+    margin-bottom: 2px;
+}
+
+h5 {
+    font-size: 200%;
+}
+
+h6 {
+    font-size: 300%;
+    margin-bottom: 32px;
+}
+
+// ————————————————————————————— lists
+
+ul {
+    list-style-type: disc;
+}
+
+ul ul {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    list-style-type: circle;
+}
+
+ul ul ul {
+    list-style-type: square;
+}
+
+ol {
+    list-style-type: decimal;
+}
+
+ol ol {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    list-style-type: lower-alpha;
+}
+
+ol ol ol {
+    list-style-type: lower-roman;
+}
+
+ol ol,
+ul ol {
+    list-style-type: lower-roman;
+}
+
+li li {
+    font-size: 100%;
+}
+
+iframe {
+    width: 100%;
+}
+
+
+// ————————————————————————————————————————— 
+// Special Typography
+// —————————————————————————————————————————
+.p {
+    font-size: 180%;
+    line-height: 1.4;
+}
+
+// ————————————————————————————————————————— 
+// buttons
+// —————————————————————————————————————————
+
+.button {
+    margin-top: 10px;
+    display: inline-block;
+    padding: 15px 30px;
+    text-decoration: none !important;
+    line-height: 1;
+
+    &:hover {}
+}
+
+button {
+    border-color: transparent;
+}
+
+
+
+// ————————————————————————————————————————— 
+// layers
+// —————————————————————————————————————————
+.sidebar {
+    margin-left: 0;
+
+    > div {
+        background: rgba(0, 0, 0, 0.4);
+        padding-left: 60px;
+    }
+}
+
+.home__feed {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.tag-list {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 30px 0;
+
+    h3 {
+        margin: 0; 
+        padding: 0;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 30px;
+        list-style: none;
+
+        li a {
+            font-size: 180%;
+            text-decoration: none;
+            border: 1px solid $light;
+            padding: 7px 10px;
+            border-radius: 100px;
+        }
+    }
+
+}
+
+
+
+// ————————————————————————————————————————— 
+// footer
+// —————————————————————————————————————————
+
+#footer {}
+
+
+// —————————————————————————————————————————
+// IMPORTS
+// —————————————————————————————————————————
+// these are partials, must go in the _sass folder
+@import "responsive.scss";

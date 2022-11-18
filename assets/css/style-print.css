@@ -1,0 +1,137 @@
+/**
+ * Print Stylesheet fuer Deinewebsite.de
+* @version         1.0
+* @lastmodified    16.06.2016
+*/
+
+@media print {
+    #content,
+    #page {
+        width: 100% !important;
+        margin: 0 !important;
+        float: none !important;
+    }
+
+    @page {
+        margin: 2cm !important;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        font-size: 13pt !important;
+        line-height: 1.3 !important;
+        background: #fff !important;
+        color: #000 !important;
+    }
+
+    h1 {
+        font-size: 24pt !important;
+    }
+
+    h2,
+    h3,
+    h4 {
+        font-size: 14pt !important;
+        margin-top: 25px !important;
+    }
+
+    /* Alle Seitenumbrüche definieren */
+    a {
+        page-break-inside: avoid !important;
+    }
+    blockquote {
+        page-break-inside: avoid !important;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        page-break-after: avoid !important;
+        page-break-inside: avoid !important;
+    }
+    img {
+        page-break-inside: avoid !important;
+        page-break-after: avoid !important;
+    }
+    table,
+    pre {
+        page-break-inside: avoid !important;
+    }
+    ul,
+    ol,
+    dl {
+        page-break-before: avoid !important;
+    }
+
+    /* Linkfarbe und Linkverhalten darstellen */
+    a:link,
+    a:visited,
+    a {
+        background: transparent !important;
+        color: #520 !important;
+        font-weight: bold !important;
+        text-decoration: underline !important;
+        text-align: left !important;
+    }
+
+    a {
+        page-break-inside: avoid !important;
+    }
+
+    a[href^=http]:after {
+        content: " <" attr(href) "> ";
+    }
+
+    article a[href^="#"]:after {
+        content: "";
+    }
+
+    a:not(:local-link):after {
+        content: " <" attr(href) "> ";
+    }
+
+    iframe,
+    ins,
+    img,
+    #footer {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
+        line-height: 0pt !important;
+        white-space: nowrap !important;
+    }
+    .embed-youtube,
+    .embed-responsive {
+        position: absolute !important;
+        height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    p,
+    address,
+    li,
+    dt,
+    dd,
+    blockquote {
+        font-size: 100% !important;
+    }
+
+    code,
+    pre {
+        font-family: "Courier New", Courier, mono !important;
+    }
+
+    ul,
+    ol {
+        list-style: square !important;
+        margin-left: 18pt !important;
+        margin-bottom: 20pt !important;
+    }
+
+    li {
+        line-height: 1.6em !important;
+    }
+
+}

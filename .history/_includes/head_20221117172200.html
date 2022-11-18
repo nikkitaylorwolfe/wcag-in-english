@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <meta name="description" content="">
+    <meta name="author" content="Nicky Wolfe https://nicky.dev">
+    <meta name="web-author" content="Nicky Wolfe https://nicky.dev">
+    <meta name="theme-color" content="#000">
+    <!--  Social Media Share META Tags -->
+    <meta property="og:title" content="{{ page.title }}">
+    <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image:alt" content="">
+    <meta property="og:description" content="">
+
+    <!--[if lt IE 9]><script src="/js/html5shiv.js"></script><![endif]-->
+    
+    <!-- favicons -->
+
+    
+
+    <!-- scripts -->
+    <script src="/assets/js/global.js"></script>
+    
+    <!-- css -->
+    <link rel="stylesheet" href="/assets/css/main.css">  
+
+    
+    <!-- font preload -->
+    <!-- <link rel="preload" href="__HARD_URL_HERE__" as="font" type="font/woff" crossorigin>-->
+
+    <!-- end wp head -->
+</head>
+
+{% assign pageURLsplit = page.url | split: '/' %}
+{% capture pagePermalink %}/{{ pageURLsplit[1] }}/{% endcapture %}
+
+<body id="bodyID" class="page-{{ pageURLsplit }}">
+    <a id="skipLink" href="#skipNavigation">Skip Navigation</a>
+    <header id="mainHeader" class="main-header wo">
+        <div class="main-header__logo-area">
+            <a href="/">
+                <img src="/images/image.jpg" alt="Logo" />
+            </a>
+        </div>
+    </header>
+    <div id="skipNavigation"></div>

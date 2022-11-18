@@ -61,9 +61,7 @@ defaults:
 
 
 jekyll-archives:
-  enabled: 
-    - tag
-    - category
+  enabled: all
   layout: archive
   permalinks:
     year: '/:year/'

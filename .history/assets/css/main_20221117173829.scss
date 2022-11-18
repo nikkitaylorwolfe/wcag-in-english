@@ -1,0 +1,547 @@
+--- 
+--- 
+// this file must start with front matter, 
+// like above, so jekyll knows to parse and do shit with it! :D
+
+// ————————————————————————————————————————— 
+// VARIABLES: for partials
+// ————————————————————————————————————————— 
+// for layout
+$column-count: 12;
+$column-count-m: 9;
+$column-count-s: 4;
+$margin: 60;
+$margin-m: 40;
+$margin-s: 20;
+$column-gap: 20;
+
+// ————————————————————————————————————————— 
+// IMPORTS 
+// ————————————————————————————————————————— 
+// these are partials
+// init for mob theme
+@import "init";
+// grid and base layout classes
+@import "layout";
+
+
+// ————————————————————————————————————————— 
+// VARIABLES: for base
+// ————————————————————————————————————————— 
+$headerheight: 80px;
+$fullbrowserheight: calc(100vh - 80px);
+
+// color
+$dark: #25262D;
+$light: #D8D8DF;
+$medium: #373843;
+
+// easings
+$easing: cubic-bezier(0.83, 0, 0.17, 1);
+
+
+// ————————————————————————————————————————— 
+// M I X I N S
+// ————————————————————————————————————————— 
+// @include background-image("image.jpg");
+@mixin background-image($url) {
+    background: $grey url($url) no-repeat center;
+    background-size: cover;
+}
+
+// @include background-fill();
+@mixin background-fill() {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+
+// ————————————————————————————————————————— 
+// S T A T E S
+// ————————————————————————————————————————— 
+* {
+    accent-color: $light;
+    font-family: 'Atkinson Hyperlegible', sans-serif !important;
+    color: $light !important;
+}
+
+::selection {
+    background: rgba(252, 67, 54, 0.5);
+}
+
+::-moz-selection {
+    background: rgba(252, 67, 54, 0.5);
+}
+
+:focus {
+    outline: none;
+}
+
+.keyboard-focus {
+    *:focus {
+        outline: 2px solid red;
+    }
+}
+
+// skip link defaults
+// skip link defaults
+#skipLink {
+    padding: 20px 10px 11px 10px;
+    display: inline-block;
+    position: absolute;
+    z-index: 123456789;
+    background-color: white;
+    top: -200px;
+    left: 20px;
+    border-radius: 0px 0px 5px 5px;
+    box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.5);
+    transition: .4s all $easing;
+
+    &:focus {
+        top: 0;
+    }
+}
+
+
+
+// ————————————————————————————————————————— 
+// core styles & classes
+// ————————————————————————————————————————— 
+body {
+    background-color: $dark;
+}
+
+body,
+input,
+textarea,
+radio,
+checkbox,
+.strip {
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    text-align: left;
+}
+
+.pv {
+    padding-top: 65px;
+    padding-bottom: 65px;
+}
+
+// If you must, you can uncomment. Otherwise, use aspect-ratio property below
+// .video-wrapper {
+//     position: relative;
+//     padding-bottom: 56.25%;
+//     /* 16:9 */
+//     padding-top: 25px;
+//     height: 0;
+//     embed,
+//     video,
+//     object {
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         width: 100%;
+//         height: 100%;
+//     }
+// }
+
+video,
+embed,
+iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+}
+
+/* Fixes potential theme css conflict. */
+.acf-map {
+    width: 100%;
+    height: 100vh;
+
+    img {
+        max-width: inherit !important;
+    }
+}
+
+li p,
+p .button {
+    font-size: 100%;
+}
+
+
+
+// —————————————————————————————————————————
+// A11Y links in new window styling
+// https://www.w3.org/WAI/WCAG21/Techniques/general/G201.html
+// —————————————————————————————————————————
+a[target="_blank"] {
+    position: relative;
+
+    span {
+        position: absolute;
+        left: -9000px;
+        width: 0;
+        overflow: hidden;
+    }
+
+    &:hover span,
+    &:focus span,
+    &:active span {
+        display: block;
+        position: absolute;
+        top: 1em;
+        left: 1em;
+        width: 12em;
+        border: 1px solid black;
+        background-color: white;
+        color: black;
+        text-align: center;
+    }
+}
+
+
+// ————————————————————————————————————————— 
+// Navigation
+// —————————————————————————————————————————
+#navToggle {
+    padding: 0;
+    margin: 0;
+    /*  safari and firefox */
+    border: 1px solid transparent;
+
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
+.your-menu-selector {
+    display: none;
+    list-style: none;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &.is-active {
+        display: flex;
+    }
+
+    li {
+        display: inline-block;
+    }
+
+    li.menu-item-has-children {
+        position: relative;
+
+        &:after {
+            /* your icon here */
+            content: "+";
+            position: absolute;
+            top: 2px;
+            right: -15px;
+            width: 10px;
+            height: 10px;
+        }
+
+        &:focus-within .sub-menu {
+            display: block;
+        }
+
+        .sub-menu {
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        &.is-open .sub-menu {
+            display: flex;
+        }
+    }
+}
+
+
+
+// ————————————————————————————————————————— 
+// ST Typography
+// —————————————————————————————————————————
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+}
+
+p,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+b,
+strong {
+    font-weight: 600;
+}
+
+a {
+    text-decoration: underline;
+}
+
+a:hover,
+a:focus {}
+
+p.small {
+    font-size: 140%;
+}
+
+// ————————————————————————————— headings
+
+h1,
+h2 {
+    font-size: 360%;
+    font-weight: 400;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 270%;
+    margin-bottom: 10px;
+    margin-top: 40px;
+}
+
+h4 {
+    font-size: 200%;
+    margin-top: 20px;
+    margin-bottom: 2px;
+}
+
+h5 {
+    font-size: 200%;
+}
+
+h6 {
+    font-size: 300%;
+    margin-bottom: 32px;
+}
+
+// ————————————————————————————— lists
+
+ul {
+    list-style-type: disc;
+}
+
+ul ul {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    list-style-type: circle;
+}
+
+ul ul ul {
+    list-style-type: square;
+}
+
+ol {
+    list-style-type: decimal;
+}
+
+ol ol {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    list-style-type: lower-alpha;
+}
+
+ol ol ol {
+    list-style-type: lower-roman;
+}
+
+ol ol,
+ul ol {
+    list-style-type: lower-roman;
+}
+
+li li {
+    font-size: 100%;
+}
+
+iframe {
+    width: 100%;
+}
+
+
+// ————————————————————————————————————————— 
+// Special Typography
+// —————————————————————————————————————————
+
+// ————————————————————————————————————————— 
+// buttons
+// —————————————————————————————————————————
+
+.button {
+    margin-top: 10px;
+    display: inline-block;
+    padding: 15px 30px;
+    text-decoration: none !important;
+    line-height: 1;
+
+    &:hover {}
+}
+
+button {
+    border-color: transparent;
+}
+
+
+
+// ————————————————————————————————————————— 
+// contact form 7
+// —————————————————————————————————————————
+
+.form-layer {
+    padding: 0 20px 100px;
+    text-align: center;
+    background: white;
+
+    .form-layer__form {
+        p {
+            font-size: 100%;
+            margin-top: 25px;
+            display: block;
+            clear: both;
+        }
+
+        p {
+            font-size: 100%;
+            margin-top: 25px;
+            display: block;
+            clear: both;
+        }
+
+        p.three-field-date,
+        p.two-field-date {
+            font-size: 100%;
+            margin-top: 0;
+        }
+
+        label,
+        legend {
+            display: inline-block;
+            padding-bottom: 5px;
+            font-size: 180%;
+        }
+
+        legend {
+            margin-top: 25px;
+        }
+
+        input,
+        textarea,
+        checkbox,
+        radio {
+            box-sizing: border-box;
+            border: none;
+            margin: 0;
+            padding: 0;
+            width: 600px;
+            max-width: 100%;
+            font-size: 180%;
+            line-height: 1.2;
+            padding: 10px;
+        }
+
+        input[type="submit"] {
+            text-align: center;
+            font-size: 180%;
+            width: auto;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: 3px solid #4985a7;
+            color: black;
+        }
+
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            box-sizing: border-box !important;
+            background: url('img/dropdown-arrow.png') no-repeat 96% 50% transparent;
+            background-size: 16px 9px;
+        }
+    }
+}
+
+.wpcf7-list-item {
+    display: block;
+    padding-right: 20px;
+    margin: 10px 0;
+
+    input {
+        width: auto;
+        margin-right: 5px;
+    }
+
+    .wpcf7-list-item-label {
+        font-size: 180%;
+    }
+}
+
+
+// —————————————————————————————  form validation
+
+div.wpcf7-mail-sent-ok,
+div.wpcf7-validation-errors,
+div.wpcf7-acceptance-missing,
+div.wpcf7-response-output {
+    border: none !important;
+    font-size: 200%;
+    background-color: white;
+    display: block !important;
+    width: 100%;
+    padding: 30px;
+}
+
+div.wpcf7-mail-sent-ok:before {
+    content: "Success";
+    background-color: seagreen;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+div.wpcf7-validation-errors:before,
+div.wpcf7-acceptance-missing:before {
+    content: "Attention";
+    background-color: darkorange;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+span.wpcf7-not-valid-tip {
+    color: firebrick !important;
+    font-weight: normal !important;
+    display: block !important;
+    font-size: 160% !important;
+    margin-bottom: -20px !important;
+}
+
+
+// ————————————————————————————————————————— 
+// footer
+// —————————————————————————————————————————
+
+#footer {}
+
+
+// —————————————————————————————————————————
+// IMPORTS
+// —————————————————————————————————————————
+// these are partials, must go in the _sass folder
+@import "responsive.scss";

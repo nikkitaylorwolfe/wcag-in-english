@@ -1,0 +1,14 @@
+{% include head.html %}
+
+<main>
+	<div class="archive wo">
+	{% for post in site.posts %}
+		<a href="{{ post.url }}" class="archive__post col-1-13">
+			<p class="archive__post__date col-1-3">{{ post.date | date: "%B %d, %Y" }}</p>
+			<h2>{{ post.title }}</h2>
+		</a>
+	{% endfor %}
+	</div>
+</main>
+
+{% include footer.html %}

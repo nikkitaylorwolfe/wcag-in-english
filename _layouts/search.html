@@ -1,0 +1,20 @@
+{% include head.html %}
+
+<main id="search" class="search-results wo pv">
+    <input type="text" id="searchInput" placeholder="search...">
+    <section id="searchResults"></section>
+</main>
+
+<script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+
+<!-- Configuration -->
+<script>
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('searchInput'),
+        resultsContainer: document.getElementById('searchResults'),
+        json: '/assets/search/search.json',
+        searchResultTemplate: '<h2 class="col-1-13 m-col-1-10 s-col-1-5"><a href="{{ site.url }}/">Title</a></h2>'
+    })
+</script>
+
+{% include footer.html %}

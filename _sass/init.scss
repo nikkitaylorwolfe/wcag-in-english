@@ -1,0 +1,516 @@
+/*——————————————————————————————————————
+Theme: MOB
+Style Initilizer & Reset
+Circa 2019
+Incorporates parts of 
+    —MOB Styles, 
+    —Meyer Reset, 
+    —and sanitize.css
+——————————————————————————————————————*/
+
+
+/*—————————————————————————————————————— meyer reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	border: 0;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	margin: 0;
+    	padding: 0;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*—————————————————————————————————————— overflow settings to prevent double-scrollbar */
+
+html,
+body,
+#wrapper {
+    overflow-x: hidden;
+    position: relative;
+}
+body {
+    -webkit-text-size-adjust: 100%;
+}
+#wrapper {
+    min-height: 100%;
+    overflow-y: hidden;
+}
+
+/*—————————————————————————————————————— fix the box model */
+
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+
+/*—————————————————————————————————————— other resets */
+
+html {
+  -webkit-tap-highlight-color: transparent;
+  -ms-text-size-adjust: 100%; 
+  -webkit-text-size-adjust: 100%; 
+  word-break: break-word;
+}
+img {
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+    border-style: none;
+}
+abbr {
+    cursor: help;
+}
+
+
+/*—————————————————————————————————————— embedded content */
+
+iframe {
+  border-style: none;
+}
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+audio,
+video {
+  display: inline-block;
+}
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+svg {
+    position: relative;
+}
+picture {
+  display: block;
+}
+
+
+/*—————————————————————————————————————— typography */
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+body {
+    font-size: 62.5%;
+}
+li li {
+    font-size: 100%;
+}
+sup,
+sub {
+    font-size: 66%;
+}
+sup {
+    vertical-align: super;
+}
+sub {
+    vertical-align: sub;
+}
+section h1:first-child, 
+section h2:first-child,
+section h3:first-child,
+section h4:first-child,
+section h5:first-child,
+section h6:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+h1 b, h2 b, h3 b, h4 b, h5 b, h6 b,
+h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong {
+    font-weight: inherit !important;
+}
+nav a, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    text-decoration: none;
+}
+em,
+i {
+    font-style: italic;
+}
+a {
+  background-color: transparent;
+}
+abbr[title] {
+  text-decoration: underline;
+  text-decoration: underline dotted;
+}
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; 
+  font-size: 1em; 
+}
+dl dl,
+dl ol,
+dl ul,
+ol dl,
+ul dl {
+  margin: 0;
+}
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+  margin: 0;
+}
+main {
+  display: block;
+}
+nav ol,
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+
+/*—————————————————————————————————————— accessibility */
+
+[aria-busy="true"] {
+  cursor: progress;
+}
+[aria-controls] {
+  cursor: pointer;
+}
+[aria-disabled="true"],
+[disabled] {
+  cursor: not-allowed;
+}
+[aria-hidden="false"][hidden] {
+  display: initial;
+}
+[aria-hidden="false"][hidden]:not(:focus) {
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+
+
+/*—————————————————————————————————————— interaction */
+
+a,
+area,
+button,
+input,
+label,
+select,
+summary,
+textarea,
+[tabindex] {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation; 
+}
+[hidden] {
+  display: none;
+}
+details {
+  display: block;
+}
+dialog {
+  background-color: white;
+  border: solid;
+  color: black;
+  display: block;
+  height: -moz-fit-content;
+  height: -webkit-fit-content;
+  height: fit-content;
+  left: 0;
+  margin: auto;
+  padding: 1em;
+  position: absolute;
+  right: 0;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+  width: fit-content;
+}
+dialog:not([open]) {
+  display: none;
+}
+summary {
+  display: list-item;
+}
+
+
+/*—————————————————————————————————————— scripting */
+
+canvas {
+  display: inline-block;
+}
+template {
+  display: none;
+}
+
+
+/*—————————————————————————————————————— WordPress */
+
+#wpadminbar {
+    z-index: 100000000 !important;
+}
+.alignleft {
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    max-width: 40%;
+}
+.alignright {
+    float: right;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    max-width: 40%;
+}
+.aligncenter {
+    float: none;
+    margin-right: auto;
+    margin-left: auto;
+}
+.alignnone {
+    float: none;
+    margin: 20px 0;
+}
+.wp-caption {
+    max-width: 100%;
+}
+
+
+/*—————————————————————————————————————— handy classes */
+/* visually hides element — will read out on all screenreaders */
+.sr-only,
+.hidden {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+/* clearfix */
+.cf:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+* html .cf {
+    zoom: 1;
+}
+*:first-child + html .cf {
+    zoom: 1;
+}
+
+
+/*—————————————————————————————————————— form field standardization */
+
+button {
+    cursor: pointer;
+    border-color: transparent;
+}
+::-moz-selection {
+    background: #9ddeee;
+    text-shadow: none;
+}
+::selection {
+    background: #9ddeee;
+    text-shadow: none;
+}
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+.chromeframe {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+input {
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+input, textarea, submit, select {
+    max-width: 100%;
+}
+/**
+ * Remove the margin on controls in Safari.
+ */
+button,
+input,
+select {
+  margin: 0;
+}
+/**
+ * 1. Show the overflow in IE.
+ * 2. Remove the inheritance of text transform in Edge 18-, Firefox, and IE.
+ */
+button {
+  overflow: visible; /* 1 */
+  text-transform: none; /* 2 */
+}
+/**
+ * Correct the inability to style buttons in iOS and Safari.
+ */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+/**
+ * 1. Change the inconsistent appearance in all browsers (opinionated).
+ * 2. Correct the padding in Firefox.
+ */
+fieldset {
+  border: 1px solid #a0a0a0; /* 1 */
+  padding: 0.35em 0.75em 0.625em; /* 2 */
+}
+/**
+ * Show the overflow in Edge 18- and IE.
+ */
+input {
+  overflow: visible;
+}
+/**
+ * 1. Correct the text wrapping in Edge 18- and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ */
+legend {
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  white-space: normal; /* 1 */
+}
+/**
+ * 1. Add the correct display in Edge 18- and IE.
+ * 2. Add the correct vertical alignment in Chrome, Edge, and Firefox.
+ */
+progress {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+/**
+ * Remove the inheritance of text transform in Firefox.
+ */
+select {
+  text-transform: none;
+}
+/**
+ * 1. Remove the margin in Firefox and Safari.
+ * 2. Remove the default vertical scrollbar in IE.
+ * 3. Change the resize direction in all browsers (opinionated).
+ */
+textarea {
+  margin: 0; /* 1 */
+  overflow: auto; /* 2 */
+  resize: vertical; /* 3 */
+}
+/**
+ * Remove the padding in IE 10-.
+ */
+[type="checkbox"],
+[type="radio"] {
+  padding: 0;
+}
+/**
+ * 1. Correct the odd appearance in Chrome, Edge, and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+/**
+ * Correct the cursor style of increment and decrement buttons in Safari.
+ */
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+/**
+ * Correct the text style of placeholders in Chrome, Edge, and Safari.
+ */
+::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+/**
+ * Remove the inner padding in Chrome, Edge, and Safari on macOS.
+ */
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+/**
+ * 1. Correct the inability to style upload buttons in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+/**
+ * Remove the inner border and padding of focus outlines in Firefox.
+ */
+::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+/**
+ * Restore the focus outline styles unset by the previous rule in Firefox.
+ */
+:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+/**
+ * Remove the additional :invalid styles in Firefox.
+ */
+:-moz-ui-invalid {
+  box-shadow: none;
+}

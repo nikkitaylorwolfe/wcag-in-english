@@ -1,0 +1,23 @@
+{% include head.html %}
+
+<article data-barba="container" data-barba-namespace="post">
+    <header class="page-header page-header--post wo">
+        <p class="eyebrow col-4-6 m-col-2-8 s-col-1-5">{{ page.date | date: "%b %e %Y" }}</p>
+        {% for category in page.categories %}
+            <a href="{{ site.url }}/{{ category | slugify: 'latin' }}" class="eyebrow col-6-10">
+                {{ category }}
+            </a>
+        {% endfor %}
+        <h1 class="h2 col-4-10 m-col-2-8 s-col-1-5">{{ page.title }}</h1>
+    </header>
+
+    <section class="general-content wo pv">
+        <div class="col-1-13">
+            {{ content }}
+        </div>
+    </section>
+
+    <a class="button button--round" href="{{ site.url }}/News">All News</a>
+</article>
+
+{% include footer.html %}
