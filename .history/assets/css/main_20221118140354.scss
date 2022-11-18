@@ -400,7 +400,7 @@ button {
 .sidebar {
     background: rgba(0, 0, 0, 0.3);
     height: 100vh;
-    padding: 40px;
+    padding: 60px 30px;
     top: 0;
     position: fixed;
     z-index: 100;
@@ -408,11 +408,12 @@ button {
     margin-left: 0;
     width: 360px;
 
-    > ul > li {
+    ul li {
+        margin-left: 20px;
         margin-bottom: 20px;
         display: grid; 
         grid-template-columns: 140px auto; 
-        align-items: center;
+        grid-auto-rows: 1fr; 
         gap: 14px 20px;
 
         a {
@@ -472,7 +473,6 @@ button {
     border-radius: 100px;
     display: inline-block;
     margin: 0 !important;
-    white-space: nowrap;
 }
 
 .tag-list {

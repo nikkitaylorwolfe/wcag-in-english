@@ -408,11 +408,11 @@ button {
     margin-left: 0;
     width: 360px;
 
-    > ul > li {
+    > ul li {
+        margin-left: 20px;
         margin-bottom: 20px;
         display: grid; 
         grid-template-columns: 140px auto; 
-        align-items: center;
         gap: 14px 20px;
 
         a {
@@ -472,7 +472,6 @@ button {
     border-radius: 100px;
     display: inline-block;
     margin: 0 !important;
-    white-space: nowrap;
 }
 
 .tag-list {
