@@ -1,0 +1,37 @@
+{% include head.html %}
+
+{% include sidebar.html %}
+
+<main class="post content-wrapper">
+    <article class="wo">
+        <h2>
+            <a href="{{ post.url }}">
+                {{ page.title }}
+            </a>
+        </h2>
+        <p class="p">
+            {{ page.category }} | Level {{ page.level }}
+        </p>
+    
+        <div class="post__content wysiwyg">
+            {{ content }}
+        </div>
+    
+        <div class="tag-list">
+            <h3>
+                Tags:
+            </h3>
+            <ul>
+                {% for tag in page.tags %}
+                <li>
+                    <a href="/tags/{{ tag | slugify }}">
+                        {{ tag }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </article>
+</main>
+
+{% include footer.html %}

@@ -11,17 +11,10 @@
         <li class="p">
             <a href="{{ post.url }}">
                 {{ post.title }}
-            </a>
-            <ul class="tag-list">
-                <li>
+                <span>
                     {{ post.level }}
-                </li>
-                {% for tag in page.tags %}
-                <li>
-                    {{ tag }}
-                </li>
-                {% endfor %}
-            </ul>
+                </span>
+            </a>
         </li>
         {% endfor %}
     </ul>

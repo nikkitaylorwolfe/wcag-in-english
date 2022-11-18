@@ -398,24 +398,21 @@ button {
 }
 
 .sidebar {
-    background: rgba(0, 0, 0, 0.3);
-    height: 100vh;
-    padding: 60px;
-    top: 0;
-    position: fixed;
-    z-index: 100;
-    overflow-y: scroll;
     margin-left: 0;
-    width: 360px;
+    width: 300px;
 
-    ul li {
-        margin-left: 20px;
-        margin-bottom: 20px;
+    > div {
+        background: rgba(0, 0, 0, 0.3);
+        height: 100vh;
+        padding: 60px;
+        top: 0;
+        position: fixed;
+        z-index: 100;
+        overflow-y: scroll;
+    
 
-        a {
-            text-decoration: underline;
-            text-decoration-thickness: 1px;
-            text-underline-offset: 5px;
+        ul li {
+            margin-left: 20px;
         }
     }
 }
@@ -426,69 +423,33 @@ button {
     flex-wrap: wrap;
 }
 
-.post__header {
-    border-bottom: 1px solid $light;
-    padding-bottom: 20px;
-}
+.tag-list {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 30px 0;
 
-.post__datalist {
-    display: grid; 
-    grid-template-columns: 140px auto; 
-    grid-auto-rows: 1fr; 
-    gap: 14px 20px;
-
-    .tag-list {
-        margin: 0 !important;
+    h3 {
+        margin: 0; 
+        padding: 0;
     }
 
-    dt {
-        font-weight: bold;
-    }
-
-    dt, 
-    dd {
-        align-self: center;
-        font-size: 180%;
-        line-height: 1.2;
+    ul {
         margin: 0;
         padding: 0;
+        display: flex;
+        gap: 30px;
+        list-style: none;
 
-        a {
-            text-decoration: underline;
-            text-decoration-thickness: 1px;
-            text-underline-offset: 5px;
-        }
-    }
-}
-
-.tag-list li,
-.tag {
-    font-size: 80%;
-    border: 1px solid $light;
-    padding: 5px 9px;
-    border-radius: 100px;
-    display: inline-block;
-    margin: 0 !important;
-}
-
-.tag-list {
-    margin: 10px 0 0 0 !important;
-    padding: 0 !important;
-    display: flex;
-    gap: 10px;
-    list-style: none;
-}
-
-.tag-list--links {
-    li {
-        text-decoration: none !important;
-        background-color: $light;
-        color: $dark;
-
-        a {
+        li a {
+            font-size: 180%;
             text-decoration: none;
+            border: 1px solid $light;
+            padding: 7px 10px;
+            border-radius: 100px;
         }
     }
+
 }
 
 

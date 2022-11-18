@@ -18,7 +18,9 @@
                 </li>
                 {% for tag in page.tags %}
                 <li>
-                    {{ tag }}
+                    <a href="/tags/{{ tag | slugify }}">
+                        {{ tag }}
+                    </a>
                 </li>
                 {% endfor %}
             </ul>

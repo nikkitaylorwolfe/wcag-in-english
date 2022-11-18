@@ -4,10 +4,12 @@
 
 <main class="post content-wrapper">
     <article class="wo">
-        <h2 class="post__header col-1-13">
-            {{ page.title }}
+        <h2 class="col-1-13">
+            <a href="{{ post.url }}">
+                {{ page.title }}
+            </a>
         </h2>
-        <dl class="post__datalist col-1-13">
+        <dl class="post__datalist col-1-6">
             <dt>WCAG Section</dt>
             <dd>{{ page.category }}</dd>
         
@@ -15,8 +17,8 @@
             <dd>{{ page.level }}</dd>
         
             <dt>Tags</dt>
-            <dd>
-                <ul class="tag-list tag-list--links">
+            <dd class="tag-list">
+                <ul>
                     {% for tag in page.tags %}
                     <li>
                         <a href="/tags/{{ tag | slugify }}">
@@ -25,13 +27,6 @@
                     </li>
                     {% endfor %}
                 </ul>
-            </dd>
-
-            <dt>W3.org Link</dt>
-            <dd>
-                <a href="{{ page.w3_link }}">
-                    Understanding Success Criterion {{ page.title }}
-                </a>
             </dd>
         </dl>
 

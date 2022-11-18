@@ -7,12 +7,19 @@
         <h2 class="post__header col-1-13">
             {{ page.title }}
         </h2>
-        <dl class="post__datalist col-1-13">
+        <dl class="post__datalist col-1-6">
             <dt>WCAG Section</dt>
             <dd>{{ page.category }}</dd>
         
             <dt>Level</dt>
             <dd>{{ page.level }}</dd>
+
+            <dt>W3.org Link</dt>
+            <dd>
+                <a href="{{ page.w3_link }}">
+                    Understanding Success Criterion {{ page.title }}
+                </a>
+            </dd>
         
             <dt>Tags</dt>
             <dd>
@@ -25,13 +32,6 @@
                     </li>
                     {% endfor %}
                 </ul>
-            </dd>
-
-            <dt>W3.org Link</dt>
-            <dd>
-                <a href="{{ page.w3_link }}">
-                    Understanding Success Criterion {{ page.title }}
-                </a>
             </dd>
         </dl>
 
